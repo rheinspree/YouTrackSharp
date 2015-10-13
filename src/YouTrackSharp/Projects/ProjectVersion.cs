@@ -43,7 +43,6 @@ namespace YouTrackSharp.Projects
         [JsonName("value")]
         public string Name { get; set; }        
         public string Description { get; set; }
-        public int? ColorIndex { get; set; }
         public long? ReleaseDate { get; set; }
         [JsonName("released")]
         public bool? IsReleased { get; set; }
@@ -55,13 +54,12 @@ namespace YouTrackSharp.Projects
             var sb = new StringBuilder();
             sb.Append(Name);
             if (
-                !(!string.IsNullOrEmpty(Name) || !string.IsNullOrEmpty(Description) || ColorIndex.HasValue
+                !(!string.IsNullOrEmpty(Name) || !string.IsNullOrEmpty(Description)
                   || ReleaseDate.HasValue || IsReleased.HasValue || IsArchived.HasValue)) return sb.ToString();
 
             sb.Append("?");
 
             if (!string.IsNullOrEmpty(Description)) sb.Append("&description=" + Description.Replace(' ', '+'));
-            if (ColorIndex.HasValue) sb.Append("&colorIndex=" + ColorIndex.Value);
             if (ReleaseDate.HasValue) sb.Append("&releaseDate=" + ReleaseDate.Value.ToString());
             if (IsReleased.HasValue) sb.Append("&released=" + IsReleased.Value.ToString());
             if (IsArchived.HasValue) sb.Append("&archived=" + IsArchived.Value.ToString());
@@ -72,7 +70,6 @@ namespace YouTrackSharp.Projects
 
     public class VersionBundle
     {
-        public string Name { get; set; }
         public IEnumerable<ProjectVersion> Version { get; set; }
     }
 }

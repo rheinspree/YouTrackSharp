@@ -39,7 +39,7 @@ namespace YouTrackSharp.Specs.Bugs
     {
         Establish context = () =>
         {
-            connection = new Connection("youtrack.jetbrains.net");
+            connection = new Connection("workshop.myjetbrains.com", 80, false, "youtrack");
             connection.Authenticate("youtrackapi", "youtrackapi");
 
         };

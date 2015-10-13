@@ -230,7 +230,7 @@ namespace YouTrackSharp.Issues
 				{
 					var countObject = _connection.Get<Count>(string.Format("issue/count?filter={0}", encodedQuery));
 
-					count = countObject.Entity.Value;
+					count = countObject.Value;
 					Thread.Sleep(3000);
 				}
 

@@ -79,20 +79,20 @@ namespace YouTrackSharp.Projects
             return _connection.Get<IEnumerable<ProjectResolutionType>>("project/resolutions");
         }
 
-        public IEnumerable<ProjectVersion> GetVersions(string versionBundleName)
+        public IEnumerable<ProjectVersion> GetVersions(string projectId)
         {
-            var x = _connection.Get<VersionBundle>(string.Format("admin/customfield/versionBundle/{0}", versionBundleName));
+            var x = _connection.Get<VersionBundle>(string.Format("admin/project/{0}/version", projectId));
             return x.Version;
         }
 
         public IEnumerable<ProjectVersion> GetVersions(Project project)
         {
-            return GetVersions(project.VersionBundleName());
+            return GetVersions(project.Id);
         }
 
-        public Project GetProject(string projectName)
+        public Project GetProject(string projectId)
         {
-            return _connection.Get<Project>(String.Format("admin/project/{0}", projectName));
+            return _connection.Get<Project>(String.Format("admin/project/{0}", projectId));
         }
 
         public void AddSubsystem(string projectName, string subsystem)
@@ -102,22 +102,22 @@ namespace YouTrackSharp.Projects
 
         public void AddVersion(Project project, ProjectVersion version)
         {
-            AddVersion(project.VersionBundleName(), version);
+            AddVersion(project.Id, version);
         }
 
-        public void AddVersion(string versionBundleName, ProjectVersion version)
+        public void AddVersion(string projectId, ProjectVersion version)
         {
-            _connection.Put(String.Format("admin/customfield/versionBundle/{0}/{1}", versionBundleName, version.GetQueryString()), "");
+            _connection.Put(String.Format("admin/project/{0}/version/{1}", projectId, version.GetQueryString()), "");
         }
 
         public void DeleteVersion(Project project, string versionName)
         {
-            DeleteVersion(project.VersionBundleName(), versionName);
+            DeleteVersion(project.Id, versionName);
         }
 
         public void DeleteVersion(string bundleName, string versionName)
         {
-            _connection.Delete(string.Format("admin/customfield/versionBundle/{0}/{1}", bundleName, versionName));
+            _connection.Delete(string.Format("admin/project/{0}/version/{1}", bundleName, versionName));
         }
     }
 }

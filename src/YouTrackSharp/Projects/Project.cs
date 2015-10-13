@@ -38,13 +38,13 @@ namespace YouTrackSharp.Projects
     public class Project
     {
         public string Name { get; set; }
-        public string ShortName { get; set; }
+        public string Id { get; set; }
         public bool IsImporting { get; set; }
         public SubValuesArray AssigneesFullname { get; set; }
 
         protected bool Equals(Project other)
         {
-            return string.Equals(ShortName, other.ShortName) && IsImporting.Equals(other.IsImporting);
+            return string.Equals(Id, other.Id) && IsImporting.Equals(other.IsImporting);
         }
 
         public override bool Equals(object obj)
@@ -59,13 +59,8 @@ namespace YouTrackSharp.Projects
         {
             unchecked
             {
-                return ((ShortName != null ? ShortName.GetHashCode() : 0) * 397) ^ IsImporting.GetHashCode();
+                return ((Id != null ? Id.GetHashCode() : 0) * 397) ^ IsImporting.GetHashCode();
             }
-        }
-
-        public string VersionBundleName()
-        {
-            return string.Format("{0} Versions", Name);
         }
     }
 }
