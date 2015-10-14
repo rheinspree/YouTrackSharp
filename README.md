@@ -2,6 +2,8 @@
 
 .NET Library to access YouTrack API.
 
+Forked and modified by me to fix some compatibility issues with Youtrack 6.5.
+
 For more information on YouTrack visit:
 
 http://www.jetbrains.com/youtrack
