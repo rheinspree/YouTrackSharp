@@ -81,8 +81,7 @@ namespace YouTrackSharp.Projects
 
         public IEnumerable<ProjectVersion> GetVersions(string projectId)
         {
-            var x = _connection.Get<VersionBundle>(string.Format("admin/project/{0}/version", projectId));
-            return x.Version;
+            return _connection.Get<IEnumerable<ProjectVersion>>(string.Format("admin/project/{0}/version", projectId));
         }
 
         public IEnumerable<ProjectVersion> GetVersions(Project project)
