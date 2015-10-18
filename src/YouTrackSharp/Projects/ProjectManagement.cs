@@ -109,6 +109,16 @@ namespace YouTrackSharp.Projects
             _connection.Put(String.Format("admin/project/{0}/version/{1}", projectId, version.GetQueryString()), "");
         }
 
+        public void UpdateVersion(Project project, ProjectVersion version)
+        {
+            UpdateVersion(project.Id, version);
+        }
+
+        public void UpdateVersion(string projectId, ProjectVersion version)
+        {
+            _connection.Post(String.Format("admin/project/{0}/version/{1}", projectId, version.GetQueryString()), "");
+        }
+
         public void DeleteVersion(Project project, string versionName)
         {
             DeleteVersion(project.Id, versionName);
