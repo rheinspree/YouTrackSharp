@@ -44,9 +44,9 @@ namespace YouTrackSharp.Projects
         public string Name { get; set; }        
         public string Description { get; set; }
         public long? ReleaseDate { get; set; }
-        [JsonName("released")]
+        [JsonName("isReleased")]
         public bool? IsReleased { get; set; }
-        [JsonName("archived")]
+        [JsonName("isArchived")]
         public bool? IsArchived { get; set; }
 
         public string GetQueryString()
@@ -61,8 +61,8 @@ namespace YouTrackSharp.Projects
 
             if (!string.IsNullOrEmpty(Description)) sb.Append("&description=" + Description.Replace(' ', '+'));
             if (ReleaseDate.HasValue) sb.Append("&releaseDate=" + ReleaseDate.Value.ToString());
-            if (IsReleased.HasValue) sb.Append("&released=" + IsReleased.Value.ToString());
-            if (IsArchived.HasValue) sb.Append("&archived=" + IsArchived.Value.ToString());
+            if (IsReleased.HasValue) sb.Append("&isReleased=" + IsReleased.Value.ToString());
+            if (IsArchived.HasValue) sb.Append("&isArchived=" + IsArchived.Value.ToString());
             
             return sb.ToString();
         }
