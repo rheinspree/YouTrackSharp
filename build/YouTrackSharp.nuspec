@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>YouTrackSharp.Manicmonkey</id>
+    <id>YouTrackSharp</id>
     <version>$version$</version>
     <title>YouTrackSharp</title>
     <authors>Hadi Hariri and Contributors</authors>

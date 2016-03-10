@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>YouTrackSharp.Specs</RootNamespace>
-    <AssemblyName>YouTrackSharp.Specs.Manicmonkey</AssemblyName>
+    <AssemblyName>YouTrackSharp.Specs</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
